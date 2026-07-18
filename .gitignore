@@ -1,0 +1,125 @@
+# Keras/TensorFlow model artifacts
+*.keras
+*.h5
+*.hdf5
+variables.data-*
+variables.index
+saved_model/
+bestVal/
+DenseNet-results/# ADNI/raw/derived participant-level folders
+adni_orig/
+ADNI-orig/
+ADNI-nifti/
+ADNI-nifti-temp/
+data-preprocessing/transform_mat/
+
+# Participant-level derived transformation files
+*transformation_matrix*
+*_transformation_matrix
+*_S_*
+
+# Medical images / processed arrays / labels
+*.dcm
+*.nii
+*.nii.gz
+*.mgz
+*.mha
+*.nrrd
+*.jpg
+*.jpeg
+*.png
+*.tif
+*.tiff
+*.bmp
+*.gif
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.mat
+*.csv
+*.tsv
+
+# Model artifacts / checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pb
+*.index
+variables.data-*
+saved_model/
+bestVal/
+best_val/
+checkpoints/
+models/
+runs/
+wandb/
+
+# Audit/temp files
+notebook_privacy_scan.txt
+git_status_check.txt
+git_staged_stat_check.txt
+
+# Jupyter/Python/system
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+env/
+# Restricted/local data
+data/
+adni_orig/
+patient_labels.csv
+
+# Raw and processed imaging/data files
+*.dcm
+*.nii
+*.nii.gz
+*.mgz
+*.mha
+*.nrrd
+*.jpg
+*.jpeg
+*.png
+*.tif
+*.tiff
+*.bmp
+*.gif
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.mat
+*.csv
+*.tsv
+
+# Model artifacts and experiment outputs
+checkpoints/
+models/
+runs/
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Jupyter/Python/system
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+env/
+
+# Archives may hide restricted data
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z

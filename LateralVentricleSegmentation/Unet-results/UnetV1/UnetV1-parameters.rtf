@@ -1,0 +1,66 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 input_layer = Input((224, 224, 3))\
+c1 = Conv2D(16, 3, activation = "relu", kernel_initializer = 'he_normal', \
+            name = 'c1_0', padding = "same")(input_layer)\
+d1 = Dropout(0.1, name = 'd1')(c1)\
+c1 = Conv2D(16, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c1_1', padding = "same")(d1)\
+p1 = MaxPooling2D(pool_size = (2, 2), strides = (2, 2), name = 'p1')(c1)\
+\
+c2 = Conv2D(64, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c2_0', padding = "same")(p1)\
+d2 = Dropout(0.1, name = 'd2')(c2)\
+c2 = Conv2D(64, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c2_1', padding = "same")(c2)\
+p2 = MaxPooling2D(pool_size = (2, 2), strides = (2, 2), name = 'p2')(c2)\
+\
+c3 = Conv2D(128, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c3_0', padding = "same")(p2)\
+d3 = Dropout(0.1, name = 'd3')(c3)\
+c3 = Conv2D(128, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c3_1', padding = "same")(d3)\
+p3 = MaxPooling2D(pool_size = (2, 2), strides = (2, 2), name = 'p3')(c3)\
+\
+c4 = Conv2D(256, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c4_0', padding = "same")(p3)\
+d4 = Dropout(0.1, name = 'd4')(c4)\
+c4 = Conv2D(256, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c4_1', padding = "same")(d4)\
+p4 = MaxPooling2D(pool_size = (2, 2), strides = (2, 2), name = 'p4')(c4)\
+\
+c5 = Conv2D(512, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c5_0', padding = "same")(p4)\
+c5 = Conv2D(512, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c5_1', padding = "same")(c5)\
+d5 = Dropout(0.3, name = 'd5')(c5)\
+\
+u6 = Conv2DTranspose(256, (2, 2), (2, 2), activation = "relu", kernel_initializer = 'he_normal', \
+                     name = 'u6', padding = "same")(d5)\
+m6 = concatenate([c4, u6], axis = 3)\
+c6 = Conv2D(256, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c6_0', padding = "same")(m6)\
+d6 = Dropout(0.1, name = 'd6')(c6)\
+c6 = Conv2D(256, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c6_1', padding = "same")(d4)\
+\
+u7 = Conv2DTranspose(128, (2, 2), (2, 2), activation = "relu", kernel_initializer = 'he_normal',\
+                    name = 'u7', padding = "same")(c6)\
+m7 = concatenate([c3, u7], axis = 3)\
+c7 = Conv2D(128, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c7_0', padding = "same")(m7)\
+d7 = Dropout(0.1, name = 'd7')(c7)\
+c7 = Conv2D(128, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c7_1', padding = "same")(d7)\
+\
+u8 = Conv2DTranspose(64, (2, 2), (2, 2), activation = "relu", kernel_initializer = 'he_normal', \
+                     name = 'u8', padding = "same")(c7)\
+m8 = concatenate([c2, u8], axis = 3)\
+c8 = Conv2D(64, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c8_0', padding = "same")(m8)\
+d8 = Dropout(0.1, name = 'd8')(c8)\
+c8 = Conv2D(64, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c8_1', padding = "same")(d8)\
+\
+u9 = Conv2DTranspose(16, (2, 2), (2, 2), activation = "relu", kernel_initializer = 'he_normal',\
+                    name = 'u9', padding = "same")(c8)\
+m9 = concatenate([c1, u9], axis = 3)\
+c9 = Conv2D(16, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c9_0', padding = "same")(m9)\
+d9 = Dropout(0.1, name = 'd9')(c9)\
+c9 = Conv2D(16, 3, activation = "relu", kernel_initializer = 'he_normal', name = 'c9_1', padding = "same")(d9)\
+\
+out = Conv2D(1, 1, activation = "sigmoid")(c9)\
+\
+model = Model(input_layer, out)\
+model.compile(optimizer = Adam(learning_rate = 0.001), \
+             loss = dice_loss, metrics = ['accuracy'])}
