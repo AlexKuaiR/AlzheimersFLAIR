@@ -15,6 +15,10 @@ The goal of this project was to build an end-to-end medical-imaging machine lear
 - Lateral ventricle segmentation experiments
 - Model evaluation using aggregate classification metrics
 
+## Project context
+
+This project was originally developed in 2024 for the Massachusetts Science & Engineering Fair. The public GitHub version was created later after removing restricted ADNI participant-level data, model artifacts, and notebook outputs.
+
 ## Data availability
 
 Raw and processed ADNI participant-level data are not included in this repository due to ADNI data-use restrictions. Approved users should obtain data directly through the official ADNI/LONI access process.
