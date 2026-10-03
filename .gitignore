@@ -1,24 +1,19 @@
-# Keras/TensorFlow model artifacts
-*.keras
-*.h5
-*.hdf5
-variables.data-*
-variables.index
-saved_model/
-bestVal/
-DenseNet-results/# ADNI/raw/derived participant-level folders
+# ------------------------------------------------------------------
+# Restricted ADNI data: never commit participant-level files
+# ------------------------------------------------------------------
+data/
 adni_orig/
 ADNI-orig/
 ADNI-nifti/
 ADNI-nifti-temp/
+patient_labels.csv
 data-preprocessing/transform_mat/
 
 # Participant-level derived transformation files
 *transformation_matrix*
-*_transformation_matrix
 *_S_*
 
-# Medical images / processed arrays / labels
+# Medical images, processed arrays, and labels
 *.dcm
 *.nii
 *.nii.gz
@@ -36,13 +31,23 @@ data-preprocessing/transform_mat/
 *.npz
 *.pkl
 *.joblib
-*.h5
-*.hdf5
 *.mat
 *.csv
 *.tsv
 
-# Model artifacts / checkpoints
+# Archives may hide restricted data
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ------------------------------------------------------------------
+# Model artifacts and experiment outputs
+# ------------------------------------------------------------------
+*.keras
+*.h5
+*.hdf5
 *.pt
 *.pth
 *.ckpt
@@ -53,63 +58,22 @@ variables.data-*
 saved_model/
 bestVal/
 best_val/
+DenseNet-results/
 checkpoints/
 models/
 runs/
 wandb/
 
-# Audit/temp files
+# ------------------------------------------------------------------
+# Audit / temp files
+# ------------------------------------------------------------------
 notebook_privacy_scan.txt
 git_status_check.txt
 git_staged_stat_check.txt
 
-# Jupyter/Python/system
-.ipynb_checkpoints/
-__pycache__/
-*.pyc
-.DS_Store
-.venv/
-env/
-# Restricted/local data
-data/
-adni_orig/
-patient_labels.csv
-
-# Raw and processed imaging/data files
-*.dcm
-*.nii
-*.nii.gz
-*.mgz
-*.mha
-*.nrrd
-*.jpg
-*.jpeg
-*.png
-*.tif
-*.tiff
-*.bmp
-*.gif
-*.npy
-*.npz
-*.pkl
-*.joblib
-*.h5
-*.hdf5
-*.mat
-*.csv
-*.tsv
-
-# Model artifacts and experiment outputs
-checkpoints/
-models/
-runs/
-wandb/
-*.pt
-*.pth
-*.ckpt
-*.onnx
-
-# Jupyter/Python/system
+# ------------------------------------------------------------------
+# Jupyter / Python / OS
+# ------------------------------------------------------------------
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
@@ -117,9 +81,7 @@ __pycache__/
 .venv/
 env/
 
-# Archives may hide restricted data
-*.zip
-*.tar
-*.tar.gz
-*.rar
-*.7z
+# ------------------------------------------------------------------
+# Public assets (contain no participant data)
+# ------------------------------------------------------------------
+!docs/poster/poster.png

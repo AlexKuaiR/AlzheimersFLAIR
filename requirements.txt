@@ -1,0 +1,32 @@
+# Core
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+scikit-image
+opencv-python
+Pillow
+tqdm
+split-folders
+
+# Neuroimaging I/O and preprocessing
+# (FSL must be installed separately: https://fsl.fmrib.ox.ac.uk/fsl/)
+nibabel
+pydicom
+dicom2nifti
+SimpleITK
+
+# TensorFlow / Keras models (final 3D VGG16 model)
+tensorflow
+tensorflow-addons
+classification-models-3D
+vit-keras
+
+# PyTorch / MONAI experiments
+torch
+torchvision
+torchmetrics
+torchsummary
+monai
