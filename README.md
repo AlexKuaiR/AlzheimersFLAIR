@@ -12,6 +12,8 @@ This repository holds the code behind my 2024 Massachusetts Science & Engineerin
   <sub>Click the poster to open the full-resolution PDF, or <a href="https://github.com/AlexKuaiR/AlzheimersFLAIR/raw/main/docs/poster/poster.pdf"><b>download it here</b></a>.</sub>
 </p>
 
+> The poster was reviewed by the ADNI Data and Publications Committee (DPC), which confirmed that it meets ADNI's requirements for publication and approved posting it here.
+
 ---
 
 ## Highlights
